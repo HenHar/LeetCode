@@ -6,10 +6,10 @@ class Solution:
 
     def recSubsets(self, nums, subset, subsets):
         if len(nums) == 0:
-            subsets.append(subset)
+            subsets.append(subset.copy())
             return
 
         value = nums.pop(0)
-        self.recSubsets(nums.copy(), subset.copy() + [value], subsets)
-        self.recSubsets(nums.copy(), subset.copy(), subsets)
+        self.recSubsets(nums.copy(), subset + [value], subsets)
+        self.recSubsets(nums.copy(), subset, subsets)
             
