@@ -1,6 +1,8 @@
 class Solution:
     def getNumberOfCharactersToChange(self, windowStart : int,  windowEnd : int, character_count: dict) -> int:
-        return ((windowEnd + 1) - windowStart) - max(character_count.values())
+        length_substring = (windowEnd + 1) - windowStart
+        charcater_max_occurence = max(character_count.values())
+        return length_substring - charcater_max_occurence
 
     def characterReplacement(self, s: str, k: int) -> int:
         character_count = {}
