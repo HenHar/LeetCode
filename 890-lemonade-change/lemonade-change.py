@@ -1,23 +1,26 @@
 class Solution:
     def lemonadeChange(self, bills: List[int]) -> bool:
-        collected = []
+        count5 = 0
+        count10 = 0
         for pay in bills:
-            current = pay
-            while True:
-                if current == 5:
-                    collected.append(pay)
-                    break
-                if current > 20 and 20 in collected:
-                    current -= 20
-                    collected.remove(20)
-                elif current > 10 and 10 in collected:
-                    current -= 10
-                    collected.remove(10)
-                elif current > 5 and 5 in collected:
-                    current -= 5
-                    collected.remove(5)
+            print(pay, count5, count10)
+            if pay == 5:
+                count5 += 1     
+
+            if pay == 10:
+                if count5 <= 0:
+                    return False
+                count5 -= 1
+                count10 += 1
+
+            if pay == 20:
+                if count10 >= 1 and count5 >= 1:
+                   count10 -= 1
+                   count5 -= 1
+                elif count5 >= 3:
+                    count5 -= 3
                 else:
-                    return False                    
-        
+                    return False
+                
         return True
             
