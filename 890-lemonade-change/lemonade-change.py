@@ -7,8 +7,6 @@ class Solution:
                 count5 += 1     
 
             if pay == 10:
-                if count5 <= 0:
-                    return False
                 count5 -= 1
                 count10 += 1
 
@@ -16,10 +14,11 @@ class Solution:
                 if count10 >= 1 and count5 >= 1:
                    count10 -= 1
                    count5 -= 1
-                elif count5 >= 3:
-                    count5 -= 3
                 else:
-                    return False
+                    count5 -= 3
+            
+            if count5 < 0:
+                return False
                 
         return True
             
