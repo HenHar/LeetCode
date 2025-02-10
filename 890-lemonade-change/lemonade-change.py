@@ -3,7 +3,6 @@ class Solution:
         count5 = 0
         count10 = 0
         for pay in bills:
-            print(pay, count5, count10)
             if pay == 5:
                 count5 += 1     
 
