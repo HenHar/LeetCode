@@ -3,9 +3,11 @@ class Solution:
         return self.greedy(nums)
 
     def greedy(self, nums):
-        furthest_index = 0
+        farthest_index = 0
         for i in range(len(nums) - 1):
-            if i <= furthest_index:
-                furthest_index =  max(furthest_index, i + nums[i])
+            if i > farthest_index:
+                return False
+                
+            farthest_index =  max(farthest_index, i + nums[i])
 
-        return furthest_index >= len(nums) - 1
+        return farthest_index >= len(nums) - 1
