@@ -10,9 +10,7 @@ public:
                 return std::vector<int>{seen_nums[num], static_cast<int>(idx)};
             seen_nums[target - num] = idx;
         }
-
         return {};
-
     }
 
         vector<int> twoSum2(vector<int>& nums, int target) {
