@@ -23,8 +23,8 @@ public:
                 int required = -1 * (nums[i] + nums[j]);
                 if (seen_nums.contains(required) && seen_nums[required] > j) {
                     result.push_back({nums[i], nums[j], required});
+                    j = seen_nums[nums[j]];
                 }
-                j = seen_nums[nums[j]];
             }
             i = seen_nums[nums[i]];
         }
