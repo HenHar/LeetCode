@@ -2,17 +2,17 @@ class Solution {
 public:
     int climbStairs(int n) {
         map<int, int> memo;
-        rec(n, memo);
+        recursive(n, memo);
         return iterative(n);
         return  memo[n];
     }
 
-    int rec(int n, map<int, int>& memo) {
+    int recursive(int n, map<int, int>& memo) {
         if (n < 0) return 0;
         if (n == 0) return 1;
 
         if (!memo.contains(n)) 
-            memo[n] = rec(n - 1, memo) + rec(n - 2, memo);
+            memo[n] = recursive(n - 1, memo) + recursive(n - 2, memo);
         return memo[n];
     }
 
