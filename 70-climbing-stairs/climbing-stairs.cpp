@@ -3,10 +3,7 @@ public:
     int climbStairs(int n) {
         map<int, int> memo;
         rec(n, memo);
-        
-        for (const auto& [key, value] : memo)
-            std::cout << key << " " << value << endl;
-
+        return iterative(n);
         return  memo[n];
     }
 
@@ -16,6 +13,18 @@ public:
 
         if (!memo.contains(n)) 
             memo[n] = rec(n - 1, memo) + rec(n - 2, memo);
+        return memo[n];
+    }
+
+    int iterative(int n) {
+        map<int, int> memo;
+        memo[1] = 1;
+        memo[2] = 2;
+
+        for (int i = 3; i <= n; i++) {
+            memo[i] = memo[i-1] + memo[i-2];
+        }
+
         return memo[n];
     }
 };
