@@ -2,9 +2,9 @@ class Solution {
 public:
     string longestCommonPrefix(vector<string>& strs) {
         string prefix = "";
-        int prefix_end = 0;
         string word = strs[0];
 
+        int prefix_end = 0;
         while(true) {
             prefix = word.substr(0,prefix_end);
             for (auto& word : strs) {
