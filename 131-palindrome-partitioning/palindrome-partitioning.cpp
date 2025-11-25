@@ -15,9 +15,9 @@ public:
             return;
         }
 
-        // add character as new string
-        vector<string> new_string_branch = current;
-        if (is_valid(new_string_branch.back())) {
+        // add character as new string if the last string is valid
+        if (is_valid(current.back())) {
+            vector<string> new_string_branch = current;
             new_string_branch.push_back(string(1, word[i]));
             backtrack(i + 1, new_string_branch);
         }
