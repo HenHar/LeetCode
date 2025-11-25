@@ -21,7 +21,6 @@ public:
             new_string_branch.push_back(string(1, word[i]));
             backtrack(i + 1, new_string_branch);
         }
-
         // add char to current string      
         vector<string> append_branch = current;
         append_branch.back() += word[i];
@@ -30,9 +29,17 @@ public:
     }
 
     bool is_valid(const std::string& str) {
-        std::string reversed_str = str;
-        std::reverse(reversed_str.begin(), reversed_str.end());
-        return str == reversed_str;
+        int left = 0;
+        int right = str.length() - 1;
+
+        while (left < right) {
+            if (str[left] != str[right]) {
+                return false;
+            }
+            left++;
+            right--;
+        }
+        return true;
     }
 
     vector<vector<string>> partition(string s) {
